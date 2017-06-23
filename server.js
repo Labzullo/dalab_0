@@ -33,7 +33,7 @@ var restify = require("restify");
 var builder = require("botbuilder");
 
 var server = restify.createServer();
-var port = process.env.OPENSHIFT_NODEJS_PORT || 3978
+var port = process.env.OPENSHIFT_NODEJS_PORT || 8080
 var ip = process.env.OPENSHIFT_NODEJS_IP || "0.0.0.0"
 
 server.listen(port, ip, function () {
@@ -52,6 +52,10 @@ var connector = new builder.ChatConnector({
     appPassword: "te2a62z5VUXp1d0H4ML4szz"
 });
 
+server.get('/', getChatPage);
+
+server.get('/health', getHealth);
+
 server.post("/api/messages", connector.listen());
 
 // ------------------ End Microsoft setting for the bot ------------------------
@@ -59,7 +63,7 @@ server.post("/api/messages", connector.listen());
 // ---------------- Start Dialogue Manager setting for the bot -----------------
 
 var bot = new builder.UniversalBot(connector, function(session) {
-    session.send("You said: %s", session.message.text);
+  session.send("You said: %s", session.message.text);
 });
 
 // ------------------ End Dialogue Manager setting for the bot -----------------
