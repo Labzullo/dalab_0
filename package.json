@@ -2,10 +2,14 @@
   "name": "project",
   "version": "1.0.0",
   "private": "true",
-  "description": "This project is an example of a chatbot that uses Conversate.",
-  "main": "index.js",
+  "description": "This project is an example of a chatbot integrate with Microsoft Bot Framework and Red Hat OpenShift",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Labzullo/dalab_0.git"
   },
   "author": "Carmen Manzulli",
   "license": "ISC",
