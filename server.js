@@ -16,7 +16,7 @@ const cronJob = require("cron").CronJob;
 
 function getChatPage(req, res, next) {
   res.setHeader('Content-Type', 'text/html');
-  res.end("<html><title>ZulliBot</title><iframe style='height:50%; width:50%' src='https://webchat.botframework.com/embed/deloitte_bot?s=OKQOYQdkMuQ.cwA.-UI.Zx34euxO10K1ST8hDEooUtR54Gyiw55SQr4Lt2Hhtoo'></iframe></html>");
+  res.end("<html><title>ZulliBot</title><iframe style='height:50%; width:50%' src='https://webchat.botframework.com/embed/deloitte_bot?s=OKQOYQdkMuQ.cwA.bGI.z5E2DYpCyUjjB8BYPgKlee5-IbLcFdF4VjvyDUYv9j4'></iframe></html>");
   next();
 }
 
