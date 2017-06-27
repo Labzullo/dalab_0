@@ -37,7 +37,9 @@ var app = express();
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 
-app.listen(process.env.port || process.env.PORT || 3978, function () {
+var port = process.env.port || process.env.PORT || 3978;
+
+app.listen(port, function () {
   console.log("Express listening to %s", port);
 });
 
