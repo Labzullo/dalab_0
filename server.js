@@ -33,10 +33,7 @@ var restify = require("restify");
 var builder = require("botbuilder");
 
 var server = restify.createServer();
-var port = process.env.OPENSHIFT_NODEJS_PORT || 8080
-var ip = process.env.OPENSHIFT_NODEJS_IP || "0.0.0.0"
-
-server.listen(port, ip, function () {
+server.listen(process.env.port || process.env.PORT || 3978, function () {
   console.log("%s listening to %s", server.name, server.url);
 });
 
