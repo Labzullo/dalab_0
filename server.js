@@ -15,13 +15,14 @@ const cronJob = require("cron").CronJob;
 // ---------------- Start HTTP endpoint functions for the bot ------------------
 
 function getChatPage(req, res, next) {
-  res.setHeader('Content-Type', 'text/html');
-  res.end("<html><title>ZulliBot</title><img src='img/home_page.png' alt='Home page Generali' style='width:100%; height:100%;'><iframe style='height:90%; width:40%; position: absolute; bottom:3px; right:3px;' src='https://webchat.botframework.com/embed/deloitte_bot?s=OKQOYQdkMuQ.cwA.bGI.z5E2DYpCyUjjB8BYPgKlee5-IbLcFdF4VjvyDUYv9j4'></iframe></html>");
+  res.render("index");
+  // res.setHeader("Content-Type", "text/html");
+  // res.end("<html><title>ZulliBot</title><img src='img/home_page.png' alt='Home page Generali' style='width:100%; height:100%;'><iframe style='height:90%; width:40%; position: absolute; bottom:3px; right:3px;' src='https://webchat.botframework.com/embed/deloitte_bot?s=OKQOYQdkMuQ.cwA.bGI.z5E2DYpCyUjjB8BYPgKlee5-IbLcFdF4VjvyDUYv9j4'></iframe></html>");
   next();
 }
 
 function getHealth(req, res, next) {
-  res.send('health OK.');
+  res.send("health OK");
   next();
 }
 
@@ -29,12 +30,15 @@ function getHealth(req, res, next) {
 
 // ---------------- Start Microsoft setting for the bot ------------------------
 
-var restify = require("restify");
 var builder = require("botbuilder");
+var express = require("express");
+var app = express();
 
-var server = restify.createServer();
-server.listen(process.env.port || process.env.PORT || 3978, function () {
-  console.log("%s listening to %s", server.name, server.url);
+app.set("view engine", "ejs");
+app.use(express.static(__dirname + "/public"));
+
+app.listen(process.env.port || process.env.PORT || 3978, function () {
+  console.log("Express listening to %s", port);
 });
 
 /*
@@ -49,11 +53,11 @@ var connector = new builder.ChatConnector({
     appPassword: "te2a62z5VUXp1d0H4ML4szz"
 });
 
-server.get('/', getChatPage);
+app.get("/", getChatPage);
 
-server.get('/health', getHealth);
+app.get("/health", getHealth);
 
-server.post("/api/messages", connector.listen());
+app.post("/api/messages", connector.listen());
 
 // ------------------ End Microsoft setting for the bot ------------------------
 
