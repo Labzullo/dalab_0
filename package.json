@@ -2,7 +2,7 @@
   "name": "project",
   "version": "1.0.0",
   "private": "true",
-  "description": "This project is an example of a chatbot integrate with Microsoft Bot Framework and Red Hat OpenShift",
+  "description": "This project is an example of a chatbot integrate with Microsoft Bot Framework and Heroku",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
