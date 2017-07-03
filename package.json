@@ -2,7 +2,7 @@
   "name": "project",
   "version": "1.0.0",
   "private": "true",
-  "description": "This project is an example of a chatbot integrate with Microsoft Bot Framework and Red Hat OpenShift",
+  "description": "Implementation of Demo for Generali ChatBot.",
   "main": "server.js",
   "scripts": {
     "start": "node server.js"
@@ -14,6 +14,7 @@
   "author": "Carmen Manzulli",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.17.2",
     "botbuilder": "^3.8.3",
     "ejs": "^2.5.6",
     "express": "^4.15.3"
